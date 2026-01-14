@@ -1,5 +1,17 @@
 <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css">
 <div class="body" style="background-color: black; color: white;">
+    <nav>
+        <img src="https://i.ytimg.com/vi/I2S9vcTG2tQ/maxresdefault.jpg" class="logo">
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-times"></i>
+        </ul>
+        <i class="fas fa-bars"></i>
+    </nav>
     <div id="header">
         <div class="container">
             <div style="display: flex; align-items: end; width: 100%; gap: 50px;">
@@ -29,9 +41,9 @@
                         Intern at Akeo India. Skilled in web development, with a notable focus on Angular frameworks,
                         and holds multiple certifications in cybersecurity and digital research practices.</p>
                     <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
-                        <p class="tab-links" onclick="openTab('experience')">Experience</p>
-                        <p class="tab-links" onclick="openTab('education')">Education</p>
+                        <p class="tab-links active-link" (click)="openTab('skills', $event)">Skills</p>
+                        <p class="tab-links" (click)="openTab('experience', $event)">Experience</p>
+                        <p class="tab-links" (click)="openTab('education', $event)">Education</p>
                     </div>
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
@@ -144,20 +156,6 @@
 
 
     <script>
-        var tabLinks = document.getElementsByClassName('tab-links');
-        var tabContents = document.getElementsByClassName('tab-contents');
-
-        function openTab(tabName) {
-            for (tabLink of tabLinks) {
-                tabLink.classList.remove('active-link');
-            }
-            for (tabContent of tabContents) {
-                tabContent.classList.remove('active-tab');
-            }
-            event.currentTarget.classList.add('active-link');
-            document.getElementById(tabName).classList.add('active-tab');
-        }
-
         // JavaScript for handling the mobile navigation menu
         document.querySelector('.pi.pi-bars').addEventListener('click', function () {
             document.querySelector('nav ul').classList.toggle('show');
